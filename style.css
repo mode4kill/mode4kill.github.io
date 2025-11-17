@@ -323,72 +323,56 @@ img {
   font-size: 0.85rem;
 }
 
-/* TRACKS */
+/* TRACKS – NEW CARD LAYOUT */
 
 .tracks-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
 }
 
 .track-card {
+  width: 250px;
   background: linear-gradient(145deg, var(--card), var(--card-alt));
+  color: var(--text-main);
   border-radius: var(--radius-lg);
+  padding: 15px;
   box-shadow: var(--shadow-soft);
   border: 1px solid var(--border-subtle);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  transition: transform 0.2s ease;
+  text-align: center;
 }
 
-.track-image-wrapper {
-  position: relative;
-  overflow: hidden;
+.track-card:hover {
+  transform: scale(1.04);
 }
 
-.track-image-wrapper img {
+.track-img {
   width: 100%;
-  height: 200px;
+  height: 150px;
   object-fit: cover;
-  transition: transform var(--transition-med);
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-.track-card:hover .track-image-wrapper img {
-  transform: scale(1.05);
-}
-
-.track-tag {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(5, 5, 18, 0.8);
-  color: var(--accent);
-  font-size: 0.75rem;
-  border: 1px solid rgba(255, 77, 106, 0.5);
-}
-
-.track-body {
-  padding: 14px 14px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.track-body h3 {
-  font-size: 1.1rem;
-  margin: 0;
+.track-card h3 {
+  margin: 6px 0;
+  font-size: 1rem;
 }
 
 .track-desc {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
+  margin: 8px 0 12px;
+  min-height: 32px;
 }
 
-.player-wrapper iframe {
+.track-player {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
+  height: 120px !important;
 }
 
 /* ABOUT */
@@ -631,10 +615,6 @@ img {
     order: -1;
   }
 
-  .tracks-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .about-inner {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -681,12 +661,17 @@ img {
     padding-top: 60px;
   }
 
-  .tracks-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
   .section {
     padding: 64px 0;
+  }
+
+  .tracks-grid {
+    justify-content: center;
+  }
+
+  .track-card {
+    width: 90%;
+    max-width: 300px;
   }
 
   .board {

@@ -6,21 +6,11 @@
   <title>Fuxeris | Clixeris Previews</title>
   <meta name="description" content="Listen to exclusive track previews from Clixeris. Contact mode4kill for more info or collabs.">
   <link rel="icon" href="https://i.imgur.com/N7rlQYt.png" type="image/png" />
+  <link rel="stylesheet" href="style.css">
 
   <style>
     * {
       box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      text-align: center;
-      scroll-behavior: smooth;
-      overflow-x: hidden; /* ✅ Hide horizontal scrollbar */
-      max-width: 100vw;   /* ✅ Prevent content from overflowing */
     }
 
     header, footer {
@@ -46,17 +36,22 @@
       color: white;
     }
 
+    main {
+      padding-bottom: 40px;
+    }
+
     .page {
       opacity: 0;
       pointer-events: none;
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%; /* ✅ Fixed from 100vw */
+      width: 100%;
       min-height: 100vh;
       padding: 40px 20px;
       transition: opacity 0.5s ease, transform 0.4s ease;
       background-color: #f4f4f4;
+      transform: translateY(10px);
     }
 
     .page.active {
@@ -142,113 +137,107 @@
     <h1>🎧 Fuxeris – Clixeris Previews</h1>
   </header>
 
-  <!-- Home Page -->
-<a href="game.html"><button>🎮 Play Tic Tac Toe</button></a>
-  <div id="home" class="page active">
-    <h1>Listen to these bangers 💯</h1>
-    <p> exclusive previews from Clixeris 🔊</p>
-    <button onclick="showPage('contact')">Contact Me</button>
+  <main>
+    <!-- Home Page -->
+    <div id="home" class="page active">
+      <a href="game.html"><button>🎮 Play Tic Tac Toe</button></a>
+      <h1>Listen to these bangers 💯</h1>
+      <p>exclusive previews from Clixeris 🔊</p>
+      <button onclick="showPage('contact')">Contact Me</button>
 
-    <div class="product-container">
-      <div class="product-card" onclick="showPage('song1')">
-        <img src="https://i.imgur.com/rZmuDHv.jpeg" alt="Phantom Frequencies Cover" />
-        <iframe height="166" scrolling="no" frameborder="no" allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/phantom-frequencies&color=%23000000&auto_play=false&show_teaser=true">
-        </iframe>
-        <h2>Phantom Frequencies</h2>
-      </div>
+      <div class="product-container">
+        <div class="product-card" onclick="showPage('song1')">
+          <img src="https://i.imgur.com/rZmuDHv.jpeg" alt="Phantom Frequencies Cover" />
+          <iframe height="166" scrolling="no" frameborder="no" allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/phantom-frequencies&color=%23000000&auto_play=false&show_teaser=true">
+          </iframe>
+          <h2>Phantom Frequencies</h2>
+        </div>
 
-      <div class="product-card" onclick="showPage('song2')">
-        <img src="https://i.imgur.com/gT9HFvc.jpeg" alt="You Oughta Know Cover" />
-        <iframe height="166" scrolling="no" frameborder="no" allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/you-oughta-know&color=%23000000&auto_play=false&show_teaser=true">
-        </iframe>
-        <h2>You Oughta Know</h2>
-      </div>
+        <div class="product-card" onclick="showPage('song2')">
+          <img src="https://i.imgur.com/gT9HFvc.jpeg" alt="You Oughta Know Cover" />
+          <iframe height="166" scrolling="no" frameborder="no" allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/you-oughta-know&color=%23000000&auto_play=false&show_teaser=true">
+          </iframe>
+          <h2>You Oughta Know</h2>
+        </div>
 
-      <div class="product-card" onclick="showPage('song3')">
-        <img src="https://cdn2.suno.ai/image_large_e944f38a-1c4c-416b-9065-08ea0fcf3ca0.jpeg" alt="Running Graveyard Cover" />
-        <iframe height="166" scrolling="no" frameborder="no" allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/running-graveyard&color=%23000000&auto_play=false&show_teaser=true">
-        </iframe>
-        <h2>Running Graveyard</h2>
-      </div>
+        <div class="product-card" onclick="showPage('song3')">
+          <img src="https://cdn2.suno.ai/image_large_e944f38a-1c4c-416b-9065-08ea0fcf3ca0.jpeg" alt="Running Graveyard Cover" />
+          <iframe height="166" scrolling="no" frameborder="no" allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/running-graveyard&color=%23000000&auto_play=false&show_teaser=true">
+          </iframe>
+          <h2>Running Graveyard</h2>
+        </div>
 
-      <div class="product-card" onclick="showPage('song4')">
-        <img src="https://cdn2.suno.ai/image_large_f67e46ca-ab73-4325-8291-835af2a3a4f9.jpeg" alt="Total Innocence Cover" />
-        <iframe height="166" scrolling="no" frameborder="no" allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/total-innocence&color=%23000000&auto_play=false&show_teaser=true">
-        </iframe>
-        <h2>Total Innocence</h2>
-      </div>
-
-      <div class="product-card" onclick="showPage('song4')">
-        <img src="https://cdn2.suno.ai/image_large_f67e46ca-ab73-4325-8291-835af2a3a4f9.jpeg" alt="Total Innocence Cover" />
-        <iframe height="166" scrolling="no" frameborder="no" allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/total-innocence&color=%23000000&auto_play=false&show_teaser=true">
-        </iframe>
-        <h2>Total Innocence</h2>
+        <div class="product-card" onclick="showPage('song4')">
+          <img src="https://cdn2.suno.ai/image_large_f67e46ca-ab73-4325-8291-835af2a3a4f9.jpeg" alt="Total Innocence Cover" />
+          <iframe height="166" scrolling="no" frameborder="no" allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/total-innocence&color=%23000000&auto_play=false&show_teaser=true">
+          </iframe>
+          <h2>Total Innocence</h2>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Contact Page -->
-  <div id="contact" class="page">
-    <h1>Contact Me</h1>
-    <p>Email: <a href="mailto:mode@nasa.lt">mode@nasa.lt</a></p>
-    <p>Discord: mode4kill</p>
-    <p>Socials:</p>
-    <p>
-      <a href="https://instagram.com" target="_blank">Instagram</a> |
-      <a href="https://twitter.com" target="_blank">Twitter</a> |
-      <a href="https://github.com" target="_blank">GitHub</a>
-    </p>
-    <button onclick="showPage('home')">Back to Home</button>
-  </div>
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+      <h1>Contact Me</h1>
+      <p>Email: <a href="mailto:mode@nasa.lt">mode@nasa.lt</a></p>
+      <p>Discord: mode4kill</p>
+      <p>Socials:</p>
+      <p>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a> |
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a> |
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </p>
+      <button onclick="showPage('home')">Back to Home</button>
+    </div>
 
-  <!-- Individual Song Pages -->
-  <div id="song1" class="page">
-    <h1>Phantom Frequencies</h1>
-    <img src="https://i1.sndcdn.com/artworks-qziLoI8fR4Peil7T-F1z3BA-t1080x1080.png" alt="Phantom Frequencies Cover" width="300" />
-    <iframe height="450" scrolling="no" frameborder="no" allow="autoplay"
-      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/phantom-frequencies&color=%23000000&auto_play=false&show_teaser=true">
-    </iframe>
-    <button onclick="showPage('home')">Back to Home</button>
-  </div>
+    <!-- Individual Song Pages -->
+    <div id="song1" class="page">
+      <h1>Phantom Frequencies</h1>
+      <img src="https://i1.sndcdn.com/artworks-qziLoI8fR4Peil7T-F1z3BA-t1080x1080.png" alt="Phantom Frequencies Cover" width="300" />
+      <iframe height="450" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/phantom-frequencies&color=%23000000&auto_play=false&show_teaser=true">
+      </iframe>
+      <button onclick="showPage('home')">Back to Home</button>
+    </div>
 
-  <div id="song2" class="page">
-    <h1>You Oughta Know</h1>
-    <img src="https://i1.sndcdn.com/artworks-CzzlVXbRHNyiA9qU-u4ppnQ-t1080x1080.png" alt="You Oughta Know Cover" width="300" />
-    <iframe height="450" scrolling="no" frameborder="no" allow="autoplay"
-      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/you-oughta-know&color=%23000000&auto_play=false&show_teaser=true">
-    </iframe>
-    <button onclick="showPage('home')">Back to Home</button>
-  </div>
+    <div id="song2" class="page">
+      <h1>You Oughta Know</h1>
+      <img src="https://i1.sndcdn.com/artworks-CzzlVXbRHNyiA9qU-u4ppnQ-t1080x1080.png" alt="You Oughta Know Cover" width="300" />
+      <iframe height="450" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/you-oughta-know&color=%23000000&auto_play=false&show_teaser=true">
+      </iframe>
+      <button onclick="showPage('home')">Back to Home</button>
+    </div>
 
-  <div id="song3" class="page">
-    <h1>Running Graveyard</h1>
-    <img src="https://i1.sndcdn.com/artworks-yMS2NqmgdyZ61heb-dmvmlA-t1080x1080.png" alt="Running Graveyard Cover" width="300" />
-    <iframe height="450" scrolling="no" frameborder="no" allow="autoplay"
-      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/running-graveyard&color=%23000000&auto_play=false&show_teaser=true">
-    </iframe>
-    <button onclick="showPage('home')">Back to Home</button>
-  </div>
+    <div id="song3" class="page">
+      <h1>Running Graveyard</h1>
+      <img src="https://i1.sndcdn.com/artworks-yMS2NqmgdyZ61heb-dmvmlA-t1080x1080.png" alt="Running Graveyard Cover" width="300" />
+      <iframe height="450" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/running-graveyard&color=%23000000&auto_play=false&show_teaser=true">
+      </iframe>
+      <button onclick="showPage('home')">Back to Home</button>
+    </div>
 
-  <div id="song4" class="page">
-    <h1>Total Innocence</h1>
-    <img src="https://i1.sndcdn.com/artworks-MdeUR6iRtprcoEGa-71fOww-t1080x1080.png" alt="Total Innocence Cover" width="300" />
-    <iframe height="450" scrolling="no" frameborder="no" allow="autoplay"
-      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/total-innocence&color=%23000000&auto_play=false&show_teaser=true">
-    </iframe>
-    <button onclick="showPage('home')">Back to Home</button>
-  </div>
+    <div id="song4" class="page">
+      <h1>Total Innocence</h1>
+      <img src="https://i1.sndcdn.com/artworks-MdeUR6iRtprcoEGa-71fOww-t1080x1080.png" alt="Total Innocence Cover" width="300" />
+      <iframe height="450" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/clixeris/total-innocence&color=%23000000&auto_play=false&show_teaser=true">
+      </iframe>
+      <button onclick="showPage('home')">Back to Home</button>
+    </div>
+  </main>
 
   <footer>
     <p>&copy; 2025 mode4kill</p>
     <p>
-      <a href="https://instagram.com" target="_blank">Instagram</a> |
-      <a href="https://twitter.com" target="_blank">Twitter</a> |
-      <a href="https://github.com" target="_blank">GitHub</a>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a> |
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a> |
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
     </p>
   </footer>
 

@@ -1,109 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic Tac Toe | mode4kill</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe | Fuxeris</title>
   <link rel="icon" href="https://i.imgur.com/N7rlQYt.png" type="image/png" />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      text-align: center;
-    }
-
-    h1 {
-      margin-top: 30px;
-    }
-
-    .board {
-      display: grid;
-      grid-template-columns: repeat(3, 100px);
-      grid-template-rows: repeat(3, 100px);
-      gap: 10px;
-      justify-content: center;
-      margin: 30px auto;
-    }
-
-    .cell {
-      width: 100px;
-      height: 100px;
-      background-color: #fff;
-      font-size: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: background-color 0.2s;
-    }
-
-    .cell.marked {
-      animation: pop 0.25s ease-out;
-    }
-
-    @keyframes pop {
-      0% { transform: scale(0.3); opacity: 0.3; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .cell:hover {
-      background-color: #f0f0f0;
-    }
-
-    .status {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .controls {
-      margin-bottom: 20px;
-    }
-
-    select, button {
-      padding: 10px 15px;
-      font-size: 16px;
-      margin: 5px;
-      background-color: #222;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    select {
-      background-color: #333;
-    }
-
-    button:hover {
-      background-color: #444;
-    }
-
-    .back-btn {
-      margin-top: 30px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <h1>Tic Tac Toe vs AI 🤖</h1>
-  <div class="status" id="status">Your move!</div>
-  <div class="controls">
-    <label for="difficulty">Difficulty:</label>
-    <select id="difficulty">
-      <option value="easy">Easy</option>
-      <option value="medium" selected>Medium</option>
-      <option value="hard">Hard</option>
-    </select>
-    <button onclick="resetGame()">Restart</button>
-  </div>
 
-  <div class="board" id="board"></div>
-  <a href="index.html"><button class="back-btn">⬅ Back to Main Site</button></a>
+<body>
+  <!-- Shared header -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <div class="logo">
+        <span class="logo-mark">FX</span>
+        <span class="logo-text">Fuxeris</span>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <nav class="site-nav">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#tracks">Tracks</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html" class="nav-cta">Back to Site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section-alt">
+      <div class="container game-inner">
+        <div class="game-info">
+          <h1>Tic Tac Toe vs AI 🤖</h1>
+          <p class="game-subtitle">
+            Take a quick break from listening and try to beat the AI.
+          </p>
+          <div class="status" id="status">Your move!</div>
+
+          <div class="controls">
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty">
+              <option value="easy">Easy</option>
+              <option value="medium" selected>Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+            <button class="btn small primary" onclick="resetGame()">Restart</button>
+          </div>
+
+          <p class="game-tip">
+            Tip: On hard mode, the AI is almost unbeatable. Almost.
+          </p>
+        </div>
+
+        <div class="game-board-wrapper">
+          <div class="board" id="board"></div>
+          <a href="index.html" class="btn ghost back-btn">⬅ Back to Main Site</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2025 <strong>mode4kill</strong>. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('.site-nav');
+
+    navToggle.addEventListener('click', () => {
+      siteNav.classList.toggle('nav-open');
+    });
+
+    // Tic Tac Toe logic
     const board = document.getElementById('board');
     const statusText = document.getElementById('status');
     const difficultySelect = document.getElementById('difficulty');
@@ -147,10 +123,11 @@
         index = minimax(cells, 'O').index;
       }
 
-      if (index == null) return;
+      if (index == null || gameOver) return;
       cells[index] = 'O';
 
       const cellDiv = board.querySelector(`[data-index="${index}"]`);
+      if (!cellDiv) return;
       cellDiv.textContent = 'O';
       cellDiv.classList.add('marked');
 

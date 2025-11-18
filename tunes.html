@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instrumentals | Fuxeris</title>
+  <link rel="icon" href="https://i.imgur.com/N7rlQYt.png" type="image/png" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <div class="logo">
+        <span class="logo-mark">FX</span>
+        <span class="logo-text">Fuxeris</span>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+
+      <nav class="site-nav">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#tracks">Tracks</a>
+        <a href="tunes.html">Instrumentals</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="game.html" class="nav-cta">Play Tic Tac Toe</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Instrumentals</h2>
+          <p>Raw beats, no vocals – just vibes. Produced by Fuxeris.</p>
+        </div>
+
+        <div class="tracks-grid">
+          <!-- Example instrumental card -->
+          <article class="track-card">
+            <img class="track-img" src="https://i.imgur.com/V1vGkHT.jpeg" alt="Beat Art" />
+            <h3>Night Pulse</h3>
+            <p class="track-desc">Dark synths and ambient textures.</p>
+            <iframe
+              class="track-player"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/YOUR_HANDLE/night-pulse">
+            </iframe>
+          </article>
+
+          <!-- Add more instrumentals here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2025 <strong>mode4kill</strong>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.nav-toggle').addEventListener('click', () => {
+      document.querySelector('.site-nav').classList.toggle('nav-open');
+    });
+  </script>
+</body>
+</html>

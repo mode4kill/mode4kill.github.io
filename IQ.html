@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Little IQ Game</title>
+</head>
+<body>
+  <h1>Welcome To My Little Game...</h1>
+  <p>Today we will be checking your IQ...</p>
+  <button id="startButton">Start Game</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    function log(text) {
+      const out = document.getElementById('output');
+      out.textContent += text + "\n";
+    }
+
+    function iqGame() {
+      let yn = prompt("Do you wish to proceed? Y/N:");
+
+      if (!yn) {
+        log("No input given. Exiting.");
+        return;
+      }
+
+      yn = yn.toUpperCase();
+
+      if (yn === 'N') {
+        log("Goodbye!");
+        return;
+      } else if (yn !== 'Y') {
+        log("Please enter Y or N next time.");
+        return;
+      }
+
+      let score = 0;
+
+      log("First things first");
+
+      // Question 1
+      log("\nWhat comes next in the series: 2, 5, 10, 17, 26...?");
+      let answer1 = prompt("Choose one:\nA) 34\nB) 37\nC) 41\nD) 30\n\nYour answer (A/B/C/D):");
+      if (answer1) answer1 = answer1.toUpperCase();
+
+      if (answer1 === "B") {
+        log("Q1: Correct");
+        score += 1;
+      } else {
+        log("Q1: Incorrect (correct answer was B)");
+      }
+
+      // Question 2
+      log("\nMoving on to the next");
+      log("Five friends went to a store. David bought fewer items than Sarah but more than Emma. John bought more items than everyone else. Who bought the most items?");
+      let answer2 = prompt("Choose one:\nA) Sarah\nB) Emma\nC) David\nD) John\n\nYour answer (A/B/C/D):");
+      if (answer2) answer2 = answer2.toUpperCase();
+
+      if (answer2 === "D") {
+        log("Q2: Correct");
+        score += 1;
+      } else {
+        log("Q2: Incorrect (correct answer was D)");
+      }
+
+      // Question 3
+      log("\nWhich month of the year has 28 days?");
+      let answer3 = prompt("Choose one:\nA) All of them\nB) None of them\nC) July\nD) February\n\nYour answer (A/B/C/D):");
+      if (answer3) answer3 = answer3.toUpperCase();
+
+      if (answer3 === "A") {
+        log("Q3: Correct");
+        score += 1;
+      } else {
+        log("Q3: Incorrect (correct answer was A)");
+      }
+
+      // Question 4
+      log("\nHow many times do a clock's hour and minute hands overlap in a day?");
+      let answer4 = prompt("Choose one:\nA) 1\nB) 22\nC) 11\nD) 19\n\nYour answer (A/B/C/D):");
+      if (answer4) answer4 = answer4.toUpperCase();
+
+      if (answer4 === "B") {
+        log("Q4: Correct");
+        score += 1;
+      } else {
+        log("Q4: Incorrect (correct answer was B)");
+      }
+
+      // Final score
+      log("\nQuiz finished!");
+      log(`You got ${score} out of 4 correct.`);
+
+      let iq, level;
+      if (score === 4) {
+        iq = 140;
+        level = "Genius level 🧠";
+      } else if (score === 3) {
+        iq = 120;
+        level = "Above average 🙂";
+      } else if (score === 2) {
+        iq = 105;
+        level = "Average 😐";
+      } else {
+        iq = 80;
+        level = "Below average 😅 (better luck next time!)";
+      }
+
+      log(`Your IQ score is: ${iq}`);
+      log(level);
+    }
+
+    document.getElementById('startButton').addEventListener('click', iqGame);
+  </script>
+</body>
+</html>
